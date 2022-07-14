@@ -18,7 +18,7 @@ git branch: 'development', credentialsId: '4368c281-f352-4495-89c1-730c9742fca9'
 }
 
 stage('Build'){
-sh "${mavenHome}/bin/mvn clean packag"
+sh "${mavenHome}/bin/mvn clean package"
 }
 
   /*
@@ -56,7 +56,9 @@ def slacknotifications(String buildStatus = 'STARTED') {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER
+  
+  
   def summary = "${subject} (${env.BUILD_URL})"
 
   // Override default values based on build status
