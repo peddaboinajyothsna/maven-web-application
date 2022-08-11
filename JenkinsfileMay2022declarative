@@ -61,7 +61,8 @@ stages{
   sshagent(['d329e5ad-b30f-4c1e-93e9-41f8150fc50a']{
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@52.66.240.125:/opt/apache-tomcat-9.0.64/webapps/"
   }
-  
+  }
+  }
   
   
   
