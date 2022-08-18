@@ -33,7 +33,7 @@ stages{
   }
   
 //Execute SOnarQube Report
-/*  stage('ExecuteSonarQubeReport'){
+ stage('ExecuteSonarQubeReport'){
   steps{
   sh "mvn sonar:sonar"
   }
@@ -53,7 +53,7 @@ stages{
   sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@65.1.106.123:/opt/apache-tomcat-9.0.64/webapps/"
     }
     
-    }*/
+    }
     
     
   }//stages closing
