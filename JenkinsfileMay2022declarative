@@ -22,10 +22,9 @@ stages{
     stage('CheckoutCode'){
 	steps{
 	    
-	    git branch: 'develpoment', credentialsId: '2aab337e-f1e0-455e-ac8a-ff7d77d04424', url: 'https://github.com/peddaboinajyothsna/maven-web-application.git'
+	   git branch: 'development', changelog: false, credentialsId: '2aab337e-f1e0-455e-ac8a-ff7d77d04424', poll: false, url: 'https://github.com/peddaboinajyothsna/maven-web-application.git'
 	}
-	}
-  
+  }
   //Do the build
   stage('Build'){
   steps{
