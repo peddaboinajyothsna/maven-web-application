@@ -60,11 +60,6 @@ stages{
     }
   }//stages closing
 
-
-
-
-}//Pipeline closing
-
 post {
   success {
     slacknotifications(currentBuild.result)
