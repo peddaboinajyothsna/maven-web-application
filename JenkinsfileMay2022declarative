@@ -21,7 +21,7 @@ stages{
     //Get the code from GitHub
     stage('CheckoutCode'){
 	steps{
-	    slacknotifications("STARTED")
+	    
 	    git branch: 'develpoment', credentialsId: '2aab337e-f1e0-455e-ac8a-ff7d77d04424', url: 'https://github.com/peddaboinajyothsna/maven-web-application.git'
 	}
 	}
@@ -59,44 +59,11 @@ stages{
     
   }//stages closing
 
-post {
-  success {
-    slacknotifications(currentBuild.result)
-  }
-  failure {
-   slacknotifications(currentBuild.result)
-  }
-}
+
 
 
 }//Pipeline closing
 
-
-def slacknotifications(String buildStatus = 'STARTED') {
- 
-  buildStatus =  buildStatus ?: 'SUCCESS'
-
-  // Default values
-  def colorName = 'RED'
-  def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-  def summary = "${subject} (${env.BUILD_URL})"
-
-  // Override default values based on build status
-  if (buildStatus == 'STARTED') {
-    color = 'YELLOW'
-    colorCode = '#FFF000'
-  } else if (buildStatus == 'SUCCESS') {
-    color = 'GREEN'
-    colorCode = '#00FF00'
-  } else {
-    color = 'RED'
-    colorCode = '#FF0000'
-  }
-
-  // Send notifications
-  slackSend (color: colorCode, message: summary)
-}
 
 
 
